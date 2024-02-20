@@ -29,8 +29,34 @@ function App() {
   };
 
   const handlePlaceOrder = () => {
-    console.log('Placing order for items:', items);
-    // You can add your order placement logic here
+    if (items.length === 0) {
+      console.log('No items to place order.');
+      return;
+    }
+  
+    const apiUrl = 'http://localhost:3000/api/orders'; // Update with your actual backend URL
+  
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ items }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Order placed successfully:', data);
+        // Add any additional logic based on the API response
+      })
+      .catch((error) => {
+        console.error('Error placing order:', error);
+        // Handle errors, display a message to the user, etc.
+      });
   };
 
   return (
