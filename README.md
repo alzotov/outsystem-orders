@@ -8,7 +8,7 @@ Main algorithm is actually calculating permutations at first then selects the be
 
  - permutate items,
    
- - build parcels(packages) based on absolute price by walking each   
+ - build parcels(packages) based on (absolute) price criteria by walking each   
    permutation (simply from beginning to the end),
   
  - sort them based on optimal weight (smallest mean deviation from   
