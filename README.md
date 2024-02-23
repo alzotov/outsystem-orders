@@ -1,4 +1,4 @@
-# Frontend
+# Frontend ->
 _______
 
 # Getting Started with Create React App
@@ -67,6 +67,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+# Backend ->
+_______
+Server.js can be simply run by 'node src/Server.js' from project root directory.Frontend runs on default port 3000, server the backend on port 3001.I can't be bothered with DB since there only save operation there. We can do that but seems very idle operation.MySQL in that case (if implement DB) better run on docker.   Let me know about your concerns!Main algorithm is actually calculating permutations first then selects the best. Since we are dealing with discrete numbers with discrete criteria, where something approximately good can't be a strict answer, I went for following logic:permutate items, build parcels(packages) based on absolute price by walking each permutation (simply from beginning to the end), sort them based on optimal weight (smallest mean deviation from average line),get the first(the best) parcel.
 
 ### `npm run build` fails to minify
 
