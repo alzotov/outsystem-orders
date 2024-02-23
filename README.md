@@ -76,12 +76,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Backend ->
 _______
-Server.js is express.js app and can be simply run by 'node src/Server.js' from project root directory.
+**Server.js** is **express.js** app and can be simply run by `node src/Server.js` from project root directory.
 
-Main algorithm is actually calculating permutations first then selects the best. 
-Since we are dealing with discrete numbers with discrete criteria, where something approximately good can't be a strict answer, I went for following logic:
-permutate items, 
-build parcels(packages) based on absolute price by walking each permutation (simply from beginning to the end), 
-sort them based on optimal weight (smallest mean deviation from average line),
-get the first(the best) parcel.
+Main algorithm is actually calculating permutations at first then selects the best fit:
+
+ - permutate items,
+   
+ - build parcels(packages) based on absolute price by walking each   
+   permutation (simply from beginning to the end),
+  
+ - sort them based on optimal weight (smallest mean deviation from   
+   average line),
+       
+ - get the first(the best) parcel.
 
