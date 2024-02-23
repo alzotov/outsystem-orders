@@ -48,7 +48,7 @@ app.post('/api/orders', bodyParser.json(), (req, res) => {
             console.log({ parcel })
             batch.push([...parcel]);
             parcel = [];
-            parcelPrice = 0;
+            parcelPrice = ie.price;
           }
           parcel.push(ie);
         })
@@ -65,8 +65,9 @@ app.post('/api/orders', bodyParser.json(), (req, res) => {
       
       for(let i in parcels)
       {
+        console.log(parseInt(i)+1)
         packages.push({
-            packageId: i+1,
+            packageId: parseInt(i)+1,
             items: parcels[i],
             totalCost: parcels[i].reduce((acc, item) => acc + item.price, 0),
             totalWeight: parcels[i].reduce((acc, item) => acc + item.weight, 0),
