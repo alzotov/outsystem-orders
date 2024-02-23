@@ -29,7 +29,8 @@ app.post('/api/orders', bodyParser.json(), (req, res) => {
   
     if (totalCost > maxParcelPrice) {
   
-      buildAllVariations(items.slice(0, 1), items.slice(1));
+      //buildAllVariations(items.slice(0, 1), items.slice(1));
+      buildAllVariations([], items);
   
       console.log({ combinations });
   
