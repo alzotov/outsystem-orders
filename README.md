@@ -1,5 +1,21 @@
 Frontend runs on default port 3000, server the backend on port 3001.
 
+# Backend ->
+_______
+**Server.js** is **express.js** app and can be simply run by `node src/Server.js` from project root directory.
+
+Main algorithm is actually calculating permutations at first then selects the best fit:
+
+ - permutate items,
+   
+ - build parcels(packages) based on (absolute) price criteria by walking each   
+   permutation (simply from beginning to the end),
+  
+ - sort them based on optimal weight (smallest mean deviation from   
+   average line),
+       
+ - get the first(the best) parcel.
+
 # Frontend ->
 _______
 
@@ -74,19 +90,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# Backend ->
-_______
-**Server.js** is **express.js** app and can be simply run by `node src/Server.js` from project root directory.
-
-Main algorithm is actually calculating permutations at first then selects the best fit:
-
- - permutate items,
-   
- - build parcels(packages) based on absolute price by walking each   
-   permutation (simply from beginning to the end),
-  
- - sort them based on optimal weight (smallest mean deviation from   
-   average line),
-       
- - get the first(the best) parcel.
 
