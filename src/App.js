@@ -16,7 +16,7 @@ function App() {
           id: items.length + 1,
           name: itemName,
           price: parseFloat(itemPrice),
-          weight: itemWeight,
+          weight: parseFloat(itemWeight),
         },
       ]);
       setItemName('');
@@ -30,30 +30,28 @@ function App() {
   };
 
   const handlePlaceOrder = () => {
-    const result = {
-      packages: [
-        {
-          packageId: 1,
-          items: [
-            { name: 'Item 1', price: 10, weight: '0.5kg' },
-            { name: 'Item 2', price: 15, weight: '0.7kg' },
-          ],
-          totalCost: 25,
-          totalWeight: 1.2,
-        },
-        {
-          packageId: 2,
-          items: [
-            { name: 'Item 3', price: 20, weight: '1kg' },
-          ],
-          totalCost: 20,
-          totalWeight: 1,
-        },
-      ],
-    };
+    // const result = {
+    //   packages: [
+    //     {
+    //       packageId: 1,
+    //       items: [
+    //         { name: 'Item 1', price: 10, weight: '0.5kg' },
+    //         { name: 'Item 2', price: 15, weight: '0.7kg' },
+    //       ],
+    //       totalCost: 25,
+    //       totalWeight: 1.2,
+    //     },
+    //     {
+    //       packageId: 2,
+    //       items: [
+    //         { name: 'Item 3', price: 20, weight: '1kg' },
+    //       ],
+    //       totalCost: 20,
+    //       totalWeight: 1,
+    //     },
+    //   ],
+    // };
 
-    setOrderResult(result);
-    
     if (items.length === 0) {
       console.log('No items to place order.');
       return;
@@ -66,7 +64,7 @@ function App() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ items }),
+      body: JSON.stringify(items),
     })
       .then((response) => {
         if (!response.ok) {
@@ -76,7 +74,7 @@ function App() {
       })
       .then((data) => {
         console.log('Order placed successfully:', data);
-        // Add any additional logic based on the API response
+        setOrderResult(data);
       })
       .catch((error) => {
         console.error('Error placing order:', error);
